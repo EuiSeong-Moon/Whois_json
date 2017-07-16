@@ -1,27 +1,27 @@
 import pythonwhois
 import sys
 import json
-#from collections import OrdereDict
 
-arguments=sys.argv[1]
+
+arguments=sys.argv[1]#we can get filename through argv
 #file_data=OrderedDict()
 
 f=open(arguments,'r')
 
 data=f.readline()
 
-webdata=pythonwhois.get_whois(data)
+webdata=pythonwhois.get_whois(data)#we can get whois data
 
 f2=open("jsonfiles",'w')
 #print webdata['nameservers']
 
-#json_acceptable_string = webdata.replace("'", "\"")
+
 def date_handler(obj):		#this funciton in order to catch timeerror
     if hasattr(obj, 'isoformat'):
         return obj.isoformat()
     else:
         raise TypeError
-#// use two argument, we can catch timeerror,json encoding
+#// use two argument, we can catch timeerror,this is json encoding
 data2=json.dumps(webdata,default=date_handler)
 
 f2.write(data2)
