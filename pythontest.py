@@ -3,9 +3,10 @@ import sys
 import json
 #from collections import OrdereDict
 
+arguments=sys.argv[1]
 #file_data=OrderedDict()
 
-f=open("domains",'r')
+f=open(arguments,'r')
 
 data=f.readline()
 
